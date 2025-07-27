@@ -31,16 +31,47 @@
     padding: 0; /* Reset potential extra padding */
 }
 
-/* Styles for the profile photo (rectangular, NOT circular) */
+* Styles for the profile photo (rectangular, NOT circular) */
 .profile-pic {
-    width: 100%; /* Photo will take the full width of the left-sidebar */
-    height: auto; /* Height will automatically adjust to the photo's aspect ratio */
-    max-height: 450px; /* Maximum height for the photo to prevent it from being too large */
-    border-radius: 8px; /* Slightly rounded corners, as in the mockup */
-    overflow: hidden; /* Clips content if the image extends beyond the bounds */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border: none; /* Remove border if not needed */
+  position: relative; /* Necessary for positioning the images inside */
+  width: 100%;
+  height: auto; /* Height will be determined by the aspect ratio */
+  max-width: 450px; /* A max-width is good for responsiveness */
+  aspect-ratio: 6 / 9; /* Maintains a 6:9 aspect ratio */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures images stay within the rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
 }
+.profile-pic img {
+  position: absolute; /* Allows for absolute positioning within the container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents image distortion */
+  transition: opacity 0.4s ease-in-out; /* Smooth fade effect */
+}
+
+/* By default, the hover image is hidden */
+.profile-pic .image-hover {
+  opacity: 0;
+}
+
+/* When you hover over the .profile-pic container... */
+.profile-pic:hover .image-hover {
+  opacity: 1; /* ...make the hover image visible */
+ }
+.profile-pic:hover .image-default {
+  opacity: 0; /* ...and hide the default image */
+}
+
+
+Corrected header layer 
+
+.header {
+ z-index: 100; /* Ensures it stays above other content */
+
 /* Styles for the CV button */
 .CV-button {
   padding: 10px 50px; /* Padding for the button */
