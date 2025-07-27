@@ -1,0 +1,492 @@
+/* General styles for the header container */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%; /* Full width to cover the top of the page */
+}
+
+.header-container {
+    display: flex; /* Makes the container a flex container for columns */
+    gap: 40px; /* Spacing between the left (photo+contacts) and right (About Me) columns */
+    align-items: flex-start; /* Aligns items to the top */
+    max-width: 1200px; /* Maximum width for better screen utilization */
+    margin: 40px auto; /* Centers the block and adds top/bottom margins */
+    padding: 30px; /* Inner padding of the container */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Styles for the left column (photo + contacts) */
+.left-sidebar {
+    /* Fixed width for the left column. Adjust this value
+       so that the photo and contacts fit well.
+       For example, 320px for a 300px wide photo + padding. */
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column; /* Items inside will be stacked vertically */
+    align-items: flex-start; /* Aligns photo and contacts to the left */
+    gap: 25px; /* Spacing between the photo and the contact block */
+    /* Ensure there is no padding-top here that might shift content */
+    padding: 0; /* Reset potential extra padding */
+}
+
+* Styles for the profile photo (rectangular, NOT circular) */
+.profile-pic {
+  position: relative; /* Necessary for positioning the images inside */
+  width: 100%;
+  height: auto; /* Height will be determined by the aspect ratio */
+  max-width: 450px; /* A max-width is good for responsiveness */
+  aspect-ratio: 6 / 9; /* Maintains a 6:9 aspect ratio */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures images stay within the rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+}
+.profile-pic img {
+  position: absolute; /* Allows for absolute positioning within the container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Prevents image distortion */
+  transition: opacity 0.4s ease-in-out; /* Smooth fade effect */
+}
+
+/* By default, the hover image is hidden */
+.profile-pic .image-hover {
+  opacity: 0;
+}
+
+/* When you hover over the .profile-pic container... */
+.profile-pic:hover .image-hover {
+  opacity: 1; /* ...make the hover image visible */
+ }
+.profile-pic:hover .image-default {
+  opacity: 0; /* ...and hide the default image */
+}
+
+
+Corrected header layer 
+
+.header {
+ z-index: 100; /* Ensures it stays above other content */
+
+/* Styles for the CV button */
+.CV-button {
+  padding: 10px 50px; /* Padding for the button */
+  background-color: #74BAAF; /* Primary color for the button */
+  color: white; /* Text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Slightly rounded corners */
+  text-decoration: none; /* No underline */ 
+}
+  .logo {
+    height: 35px; /* Adjust the height of your logo to fit the navbar */
+    width: auto;  /* Maintain aspect ratio */
+
+}
+.logo_footer {
+    width: 30px; /* Logo size for footer */
+    height: 30px; /* Logo size for footer */
+    vertical-align: middle; /* Aligns the logo vertically with text */
+    margin-right: 10px; /* Spacing to the right of the logo */
+}
+.profile-pic img {
+    width: 100%;
+    height: 100%; /* Photo will take the full height of its container */
+    object-fit: cover; /* Crops the image to fill the container while maintaining aspect ratio */
+    display: block; /* Removes extra space below the image */
+}
+.nav-list {
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Resets padding */
+    margin: 0; /* Resets margin */
+    display: flex; /* Makes the list a flex container */
+    gap: 20px; /* Spacing between navigation items */
+}
+
+.nav-list {
+    list-style-type: none; /* Removes the bullet points */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Ensures the background contains the floating items */
+    background-color: #f8f9fa; /* Dark background for the navbar */
+    font-family: Arial, Helvetica, sans-serif; /* Sets a clean font */
+  }
+
+  /* Style the list items */
+  .nav-item {
+    float: left; /* Makes the list items appear side-by-side */
+  }
+
+  /* Style the links */
+  .nav-link {
+    display: block; /* Makes the entire area of the link clickable, not just the text */
+    color: black; /* White text color */
+    text-align: center; /* Centers the text inside the link */
+    padding: 14px 20px; /* Adds space around the text (14px top/bottom, 20px left/right) */
+    text-decoration: none; /* Removes the underline from links */
+  }
+
+  /* Change color on hover */
+  .nav-item:not(:first-child) .nav-link:hover {
+    background-color: #74BAAF; /* Changes background color on hover */
+    color: white; /* Changes text color to black on hover */
+  }
+ 
+  /* Remove padding from the logo's link to prevent extra space */
+  .nav-item:first-child .nav-link {
+    padding: 9px 20px; /* Adjust padding to vertically center the logo */
+  }
+
+
+.footer-nav {
+    background-color: #f8f9fa; /* Light background color for the footer */
+    border-top: 1px solid #dee2e6; /* Top border for separation */
+    padding: 20px; /* Padding for the footer */
+}
+.footer-list {
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Resets padding */
+    margin: 0; /* Resets margin */
+    display: flex; /* Makes the list a flex container */
+    gap: 20px; /* Spacing between navigation items */
+    justify-content: left; /* Centers the footer links */
+}
+/* Styles for the contact information block */
+.contact-info {
+    list-style: none; /* Removes list markers */
+    padding: 0; /* Reset padding */
+    margin: 0; /* Reset margin */
+    width: 100%; /* Takes the full width of the left-sidebar */
+    text-align: left; /* Aligns contact text to the left */
+    a:link, a:visited 
+    {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+}
+
+.contact-info li {
+    display: flex; /* Makes each list item a flex container */
+    align-items: flex-start; /* Aligns icon and text to the top */
+    margin-bottom: 12px; /* Spacing between contact items */
+    font-size: 15px;
+    color: #555;
+    line-height: 1.4; /* Line height for readability */
+    /* Ensure there is no fixed width or max-width that clips text */
+}
+
+.contact-info li:last-child {
+    margin-bottom: 0; /* Removes bottom margin from the last item */
+}
+
+.contact-info img {
+    width: 18px; /* Icon size */
+    height: 18px; /* Icon size */
+    margin-right: 10px; /* Spacing to the right of the icon */
+    flex-shrink: 0; /* Prevents the icon from shrinking */
+    margin-top: 2px; /* Small top margin for icons to align with the first line of text */
+}
+
+.contact-info strong {
+    margin-right: 5px;
+    color: #333;
+    font-weight: 600;
+    flex-shrink: 0; /* Prevents "Email:", "Phone:", etc. from shrinking */
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+    word-break: break-all; /* Allows the browser to break long words/links to prevent overflow */
+    min-width: 0; /* Important for word-break to work in flex containers */
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for the main header content (right side) */
+.header-content {
+    flex-grow: 1; /* Takes up all available remaining space */
+    /* Important: if there is padding here, it might affect the total width,
+       make sure box-sizing: border-box; is applied */
+    box-sizing: border-box;
+}
+
+.header-content .name {
+    font-size: 42px;
+    font-weight: 700;
+    margin-top: 0; /* Resets so it starts from the very top */
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.header-content .position {
+    font-size: 22px;
+    font-weight: 500;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* About Me section styles */
+.about .container {
+    padding: 0; /* Ensure this container has no extra padding that might narrow it */
+}
+
+.about .section-title {
+    font-size: 28px; /* Slightly reduced to be proportionate to other text */
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.about-text {
+    list-style-type: square; /* Square bullets for the list */
+    padding-left: 25px; /* Slightly increased indentation for the list */
+    margin: 0;
+}
+
+.about-text li {
+    font-size: 16px; /* Slightly reduced to be proportionate */
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) { /* Breakpoint for responsiveness, increased for better tablet display */
+    .header-container {
+        flex-direction: column; /* Items stack vertically */
+        align-items: center; /* Centers content */
+        padding: 25px 20px;
+        margin: 20px auto;
+        gap: 30px;
+    }
+
+    .left-sidebar {
+        flex: auto; /* Allows it to take needed width */
+        width: 100%; /* Takes full width */
+        align-items: center; /* Centers content */
+    }
+
+    .profile-pic {
+        width: 250px; /* Reduces photo size on tablets/mobiles */
+        max-height: 200px;
+        margin-bottom: 20px;
+    }
+
+    .contact-info {
+        padding: 0 15px; /* Padding for contacts */
+        text-align: left; /* Keeps text left-aligned */
+        width: 100%; /* Important for correct display on mobiles */
+        box-sizing: border-box; /* Includes padding in the width calculation */
+    }
+    
+    .contact-info li {
+        justify-content: flex-start; /* Aligns icon and text to the left */
+    }
+
+    .header-content {
+        width: 100%;
+        text-align: center; /* Centers headings on mobiles */
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .header-content .name {
+        font-size: 36px;
+    }
+
+    .header-content .position {
+        font-size: 20px;
+    }
+
+    .about .section-title {
+        text-align: center;
+    }
+
+    .about-text {
+        padding-left: 15px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 576px) { /* Additional breakpoint for very small mobiles */
+    .header-container {
+        padding: 15px 10px;
+        margin: 15px auto;
+    }
+
+    .left-sidebar {
+        gap: 15px;
+    }
+
+    .profile-pic {
+        width: 180px;
+        max-height: 150px;
+    }
+
+    .header-content .name {
+        font-size: 28px;
+    }
+
+    .header-content .position {
+        font-size: 16px;
+    }
+
+    .about .section-title {
+        font-size: 24px;
+    }
+
+    .about-text li {
+        font-size: 15px;
+    }
+}
+.icon {
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+
+.header-content {
+  flex: 1;
+}
+
+.name {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.position {
+  font-size: 20px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 20px;
+}
+.resume-section {
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.resume-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  width: 30%;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.main-content {
+  width: 70%;
+}
+
+.block {
+  margin-bottom: 40px;
+}
+
+.block-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.block ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.experience-item {
+  margin-bottom: 40px;
+}
+
+.experience-item h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.experience-item p {
+  font-size: 16px;
+ 
+}
+
+.experience-item ul {
+  list-style-type: circle;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+.education-section {
+  margin-top: 40px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.experience-item {
+  margin-bottom: 30px;
+}
+
+.experience-item h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.experience-item p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.edu-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.edu-list li {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.leftimg {
+    float:left; 
+    margin: 7px 7px 7px 0; 
+    width: 60px; 
+    height: 50px; 
+}
+.rightimg  {
+    float: right;  
+    margin: 7px 0 7px 7px; 
+}
